@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <p id="web3_message"></p>
+  <p id="general_info"></p>
+  <div id="claim_buttons"></div>
+  <input type="button" value="Release Initial Unlock Amount" onclick="_releaseInitialUnlockAmount()"></input>
+  <br>
+  <input type="input"  value="" id="entry_price"></input>
+  <input type="button" value="Set Entry Price" onclick="_setEntryPrice()"></input>
+  <br>
+  <input type="input"  value="" id="initial_unlock_amount"></input>
+  <input type="button" value="Set Initial Unlock Amount" onclick="_setInitialUnlockAmount()"></input>
+  <br>
+  <input type="input"  value="" id="amount_per_unlock"></input>
+  <input type="button" value="Set Amount Per Unlock" onclick="_setAmountPerUnlock()"></input>
+  <br>
+  <input type="input"  value="" id="unlock_count"></input>
+  <input type="button" value="Set Unlock Count" onclick="_setUnlockCount()"></input>
+  <br>
+  <input type="input"  value="" id="unlock_times"></input>
+  <input type="button" value="Set Unlock Times" onclick="_setUnlockTimes()"></input>
+  <br>
+  <input type="input"  value="" id="addresses"></input>
+  <input type="button" value="Edit Whitelist" onclick="_editWhitelist()"></input>
+  <br>
+  <input type="input"  value="" id="beneficiary"></input>
+  <input type="button" value="Revoke Beneficiary" onclick="_revokeBeneficiary()"></input>
+  <br>
+  <input type="button" value="Withdraw ETH" onclick="_withdrawETH()"></input>
+  <br>
+  <input type="button" value="Widraw Tokens" onclick="_withdrawTokens()"></input>
+  <br>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.5/web3.min.js"></script>
+  <script type="text/javascript" src="blockchain_stuff.js"></script>
+</body>
+</html>
+
+<script>
+  function _releaseInitialUnlockAmount()
+  {
+    releaseInitialUnlockAmount()
+  }
+  function _setEntryPrice()
+  {
+    entry_price = document.getElementById("entry_price").value
+    setEntryPrice(web3.utils.toWei(entry_price))
+  }
+  function _setInitialUnlockAmount()
+  {
+    initial_unlock_amount = document.getElementById("initial_unlock_amount").value
+    setInitialUnlockAmount(web3.utils.toWei(initial_unlock_amount))
+  }
+  function _setAmountPerUnlock()
+  {
+    amount_per_unlock = document.getElementById("amount_per_unlock").value
+    setAmountPerUnlock(web3.utils.toWei(amount_per_unlock))
+  }
+  function _setUnlockCount()
+  {
+    unlock_count = document.getElementById("unlock_count").value
+    setUnlockCount(unlock_count)
+  }
+  function _setUnlockTimes()
+  {
+    unlock_times = document.getElementById("unlock_times").value
+    setUnlockTimes(unlock_times.split(','))
+  }
+  function _editWhitelist()
+  {
+    addresses = document.getElementById("addresses").value
+    editWhitelist(addresses.split(','), true)
+  }
+  function _revokeBeneficiary()
+  {
+    beneficiary = document.getElementById("beneficiary").value
+    revokeBeneficiary(beneficiary, true)
+  }
+  function _withdrawETH()
+  {
+    withdrawETH()
+  }
+  function _withdrawTokens()
+  {
+    withdrawTokens()
+  }
+</script>

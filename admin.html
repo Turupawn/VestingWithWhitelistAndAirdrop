@@ -7,8 +7,19 @@
   <p id="web3_message"></p>
   <p id="general_info"></p>
   <div id="claim_buttons"></div>
+  <h2>Investor admin</h2>
+  <input type="input"  value="" id="unlock_times"></input>
+  <input type="button" value="Set Unlock Times" onclick="_setUnlockTimes()"></input>
+  <br>
+  <input type="input"  value="" id="addresses"></input>
+  <input type="button" value="Edit Whitelist" onclick="_editWhitelist()"></input>
+  <br>
+  <input type="input"  value="" id="beneficiary"></input>
+  <input type="button" value="Revoke Beneficiary" onclick="_revokeBeneficiary()"></input>
+  <br>
   <input type="button" value="Release Initial Unlock Amount" onclick="_releaseInitialUnlockAmount()"></input>
   <br>
+  <h2>Set variables</h2>
   <input type="input"  value="" id="entry_price"></input>
   <input type="button" value="Set Entry Price" onclick="_setEntryPrice()"></input>
   <br>
@@ -21,15 +32,7 @@
   <input type="input"  value="" id="unlock_count"></input>
   <input type="button" value="Set Unlock Count" onclick="_setUnlockCount()"></input>
   <br>
-  <input type="input"  value="" id="unlock_times"></input>
-  <input type="button" value="Set Unlock Times" onclick="_setUnlockTimes()"></input>
-  <br>
-  <input type="input"  value="" id="addresses"></input>
-  <input type="button" value="Edit Whitelist" onclick="_editWhitelist()"></input>
-  <br>
-  <input type="input"  value="" id="beneficiary"></input>
-  <input type="button" value="Revoke Beneficiary" onclick="_revokeBeneficiary()"></input>
-  <br>
+  <h2>Withdraw</h2>
   <input type="button" value="Withdraw ETH" onclick="_withdrawETH()"></input>
   <br>
   <input type="button" value="Widraw Tokens" onclick="_withdrawTokens()"></input>

@@ -6,10 +6,10 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract TokenTimelock is Ownable {
-  ERC20 public token = ERC20(0x6794e47f79d968328a7050339001dcdfb2ffb8d9);
-  uint public ENTRY_PRICE = 0.5;
-  uint public INITIAL_UNLOCK_AMOUNT = 10;
-  uint public AMOUNT_PER_UNLOCK = 5;
+  ERC20 public token = ERC20(0x6794E47f79d968328a7050339001DCDFB2fFb8d9);
+  uint public ENTRY_PRICE = 0.5 ether;
+  uint public INITIAL_UNLOCK_AMOUNT = 10 ether;
+  uint public AMOUNT_PER_UNLOCK = 5 ether;
   uint public UNLOCK_COUNT = 4;
 
   mapping(uint8 => uint256) public unlock_time;

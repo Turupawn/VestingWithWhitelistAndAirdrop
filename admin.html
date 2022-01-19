@@ -72,6 +72,7 @@
   function _editWhitelist()
   {
     addresses = document.getElementById("addresses").value
+    console.log(addresses.split(','))
     editWhitelist(addresses.split(','), true)
   }
   function _revokeBeneficiary()

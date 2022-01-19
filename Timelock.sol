@@ -6,11 +6,11 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract TokenTimelock is Ownable {
-  ERC20 public token;
-  uint public ENTRY_PRICE;
-  uint public INITIAL_UNLOCK_AMOUNT;
-  uint public AMOUNT_PER_UNLOCK;
-  uint public UNLOCK_COUNT;
+  ERC20 public token = ERC20(0x6794e47f79d968328a7050339001dcdfb2ffb8d9);
+  uint public ENTRY_PRICE = 0.5;
+  uint public INITIAL_UNLOCK_AMOUNT = 10;
+  uint public AMOUNT_PER_UNLOCK = 5;
+  uint public UNLOCK_COUNT = 4;
 
   mapping(uint8 => uint256) public unlock_time;
   mapping(address => bool) public is_beneficiary;
@@ -20,11 +20,6 @@ contract TokenTimelock is Ownable {
   uint public initial_token_unlock_addresses_count;
 
   mapping(address => bool) public whitelist;
-
-  constructor()
-  {
-    token = ERC20(0x0000000000000000000000000000000000000000);
-  }
 
   // Public functions
   
@@ -58,7 +53,7 @@ contract TokenTimelock is Ownable {
   {
     for(uint i; i < initial_token_unlock_addresses_count; i++)
     {
-      if(is_beneficiary[msg.sender])
+      if(is_beneficiary[initial_token_unlock_addresses[i]])
       {
         token.transfer(initial_token_unlock_addresses[i], INITIAL_UNLOCK_AMOUNT);
       }
@@ -88,14 +83,15 @@ contract TokenTimelock is Ownable {
 
   function setUnlockTimes(uint[] memory unlock_times) public onlyOwner
   {
-    setEntryPrice(unlock_times.length);
+    setUnlockCount(unlock_times.length);
     for(uint8 i; i<unlock_times.length; i++)
     {
       unlock_time[i] = unlock_times[i];
     }
   }
 
-  function editWhitelist(address[] memory addresses, bool value) public onlyOwner {
+  function editWhitelist(address[] memory addresses, bool value) public onlyOwner
+  {
     for(uint i; i < addresses.length; i++){
       whitelist[addresses[i]] = value;
     }

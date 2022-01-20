@@ -2,8 +2,21 @@
 
 pragma solidity 0.8.11;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract ERC20
+{
+  function balanceOf(address account) public view virtual returns (uint256) {
+    account;
+    return 0;
+  }
+  function transfer(address recipient, uint256 amount) public virtual returns (bool) {
+    recipient;
+    amount;
+    return true;
+  }
+}
+
 
 contract TokenTimelock is Ownable {
   ERC20 public token = ERC20(0x6794E47f79d968328a7050339001DCDFB2fFb8d9);

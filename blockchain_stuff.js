@@ -72,7 +72,7 @@ async function loadDapp() {
         };
         awaitContract();
       } else {
-        document.getElementById("web3_message").textContent="Please connect to Rinkeby";
+        document.getElementById("web3_message").textContent="Please connect to Mainnet";
       }
     });
   };

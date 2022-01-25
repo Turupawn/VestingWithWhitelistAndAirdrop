@@ -96,8 +96,8 @@ const onContractInitCallback = async () => {
   var general_info = document.getElementById("general_info")
 
   general_info_str = "Entry price: " + web3.utils.fromWei(ENTRY_PRICE) + " ETH"
-  + "<br>Initial unlock amount: " + web3.utils.fromWei(INITIAL_UNLOCK_AMOUNT) + " TGE"
-  + "<br>Amunt per unlock: " + web3.utils.fromWei(AMOUNT_PER_UNLOCK) + " TGE"
+  + "<br>Initial unlock amount: " + INITIAL_UNLOCK_AMOUNT + " TGE (in wei)"
+  + "<br>Amunt per unlock: " + AMOUNT_PER_UNLOCK + " TGE (in wei)"
   + "<br>Unlock count: " + UNLOCK_COUNT
   + "<br>Initial token unlock address count: " + initial_token_unlock_addresses_count
   + "<br>Owner: " + owner_address
@@ -163,7 +163,7 @@ const onContractInitCallback = async () => {
         }else
         {
           claimed_p = document.createElement("p")
-          claimed_p.innerHTML = "Please claim " + web3.utils.fromWei(AMOUNT_PER_UNLOCK) + " tokens on " + new Date(timestamp * 1000)
+          claimed_p.innerHTML = "Please claim on " + new Date(timestamp * 1000)
           parent.appendChild(claimed_p)
         }
       }else

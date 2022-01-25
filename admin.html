@@ -21,13 +21,13 @@
   <br>
   <h2>Set variables</h2>
   <input type="input"  value="" id="entry_price"></input>
-  <input type="button" value="Set Entry Price" onclick="_setEntryPrice()"></input>
+  <input type="button" value="Set Entry Price (in ETH)" onclick="_setEntryPrice()"></input>
   <br>
   <input type="input"  value="" id="initial_unlock_amount"></input>
-  <input type="button" value="Set Initial Unlock Amount" onclick="_setInitialUnlockAmount()"></input>
+  <input type="button" value="Set Initial Unlock Amount (in wei)" onclick="_setInitialUnlockAmount()"></input>
   <br>
   <input type="input"  value="" id="amount_per_unlock"></input>
-  <input type="button" value="Set Amount Per Unlock" onclick="_setAmountPerUnlock()"></input>
+  <input type="button" value="Set Amount Per Unlock (in wei)" onclick="_setAmountPerUnlock()"></input>
   <br>
   <input type="input"  value="" id="unlock_count"></input>
   <input type="button" value="Set Unlock Count" onclick="_setUnlockCount()"></input>
@@ -55,12 +55,12 @@
   function _setInitialUnlockAmount()
   {
     initial_unlock_amount = document.getElementById("initial_unlock_amount").value
-    setInitialUnlockAmount(web3.utils.toWei(initial_unlock_amount))
+    setInitialUnlockAmount(initial_unlock_amount)
   }
   function _setAmountPerUnlock()
   {
     amount_per_unlock = document.getElementById("amount_per_unlock").value
-    setAmountPerUnlock(web3.utils.toWei(amount_per_unlock))
+    setAmountPerUnlock(amount_per_unlock)
   }
   function _setUnlockCount()
   {
